@@ -34,7 +34,7 @@ for images, labels in train_ds.take(1):
     plt.show()
 
 answer = input("Загрузить ранее сохраненную модель с диска (y/n)? ")
-if (answer == "y" or answer == "Y"):
+if (answer == "y" or answer == "Y" or answer == ""):
     model = tf.keras.models.load_model("2nd_model")
 else:
     model = tf.keras.Sequential([
@@ -75,6 +75,7 @@ my_flowers_ds = tf.keras.utils.image_dataset_from_directory(
     label_mode='int',
     class_names=class_names,
     color_mode='rgb',
+    shuffle=False,
     image_size=(256, 256),
     crop_to_aspect_ratio=True)
 
